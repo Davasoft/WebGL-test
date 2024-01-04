@@ -34,16 +34,14 @@
             productVersion: "0.1",
         });
 
-        function callUnityFunction(functionName)
-        {
-            unityInstance.then(function (unity)
-            {
+        function callUnityFunction(functionName) {
+            unityInstance.then(function (unity) {
                 unity.SendMessage('Test', functionName);
             });
         }
-        function callUnityFunctionWithVaue(functionName,value) {
+        function callUnityFunctionWithVaue(functionName, value) {
             unityInstance.then(function (unity) {
-                unity.SendMessage('Test', functionName,value);
+                unity.SendMessage('Test', functionName, value);
             });
         }
     </script>
