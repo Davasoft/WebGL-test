@@ -32,15 +32,15 @@
             companyName: "DefaultCompany",
             productName: "Kabuni Game Platform",
             productVersion: "0.1",
-            // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-            // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
         });
 
-        function sendMessageToUnity() {
-            unityInstance.SendMessage('TestObject', 'TestJS');
+        function callUnityFunction(functionName) {
+            unityInstance.then(function (unity) {
+                unity.SendMessage('TestObject', functionName);
+            });
         }
     </script>
-    <div style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="sendMessageToUnity()">Red</div>
-    <div style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="">Green</div>
+    <div id="redButton" style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="callUnityFunction('TestJS')">Red</div>
+    <div id="greenButton" style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="callUnityFunction('GreenFunction')">Green</div>
 </body>
 </html>
