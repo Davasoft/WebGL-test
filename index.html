@@ -34,13 +34,20 @@
             productVersion: "0.1",
         });
 
-        function callUnityFunction(functionName) {
-            unityInstance.then(function (unity) {
+        function callUnityFunction(functionName)
+        {
+            unityInstance.then(function (unity)
+            {
                 unity.SendMessage('Test', functionName);
+            });
+        }
+        function callUnityFunctionWithVaue(functionName,value) {
+            unityInstance.then(function (unity) {
+                unity.SendMessage('Test', functionName,value);
             });
         }
     </script>
     <div id="redButton" style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="callUnityFunction('TestJS')">Red</div>
-    <div id="greenButton" style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="callUnityFunction('GreenFunction')">Green</div>
+    <div id="greenButton" style="border: solid 1px black; width:200px;height:30px;margin:auto;text-align:center" onclick="callUnityFunctionWithVaue('TestStringJS','hello')">Green</div>
 </body>
 </html>
